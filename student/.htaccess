@@ -1,0 +1,13 @@
+# Enable rewriting engine
+RewriteEngine On
+
+# Specify the base directory
+RewriteBase /educa/student
+
+# Redirect all requests to the index.php file
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+
+# Handle 404 errors
+ErrorDocument 404 /educa/student/404.php
